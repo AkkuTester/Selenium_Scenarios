@@ -61,7 +61,7 @@ public class FileUpload_multipleways {
 	Reporter.log("clicked on submit button successfully " + "<br>");
 	
 	}
-	
+	//using robot class
 	@Test (priority = 2)
 	public void usingRobotClass() throws InterruptedException {
 		driver = new EdgeDriver();
