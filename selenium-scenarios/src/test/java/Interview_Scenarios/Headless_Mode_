@@ -1,0 +1,40 @@
+package str;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
+public class Array_RealTimeImlementation {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		EdgeOptions option = new EdgeOptions();
+		option.addArguments("--headless=new");
+		
+		WebDriver driver = new EdgeDriver(option);
+		
+		driver.get("https://www.google.com/");
+		
+		    Thread.sleep(1000);
+			List<WebElement> links =		driver.findElements(By.xpath("//div[@class = 'KxwPGc SSwjIe']/div/a"));
+			
+			System.out.println(links.size());
+			
+			String allLinks[] = new String [links.size()];
+	
+			for(int i=0; i<links.size(); i++) {
+				
+				allLinks[i] = links.get(i).getText(); //"dog"
+				
+				System.out.println(allLinks[i]);
+			}
+	}
+}
