@@ -42,7 +42,6 @@ public class ScreenShotTest {
 	public void testCase3() {
 		
 		driver.get("https://www.linkedin.com/");
-	
 	}
 	
 	@AfterMethod
@@ -51,8 +50,8 @@ public class ScreenShotTest {
 		if(ITestResult.FAILURE == result.getStatus()) {
 				CaptureScreenshot.captureScreenshot(driver, result.getName());
 			System.out.println("Test Failed.. Screenshot captured");
-			Thread.sleep(1500);
-			driver.close();
 		}
+		Thread.sleep(1500);
+		driver.close();
 	}
 }
