@@ -1,0 +1,54 @@
+package roughWork;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Different_Ways_To_Refresh_Browser {
+
+	public static void main(String[] args) throws InterruptedException, AWTException {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new EdgeDriver();
+		
+		driver.get( "https://www.google.com/" );
+		
+// METHOD - 3
+// USING -navigate() method	
+//		Thread.sleep(2000);
+//		driver.navigate().refresh();
+
+// METHOD -2
+// USING - Get Current Url
+//		Thread.sleep(2000);
+//		driver.get(driver.getCurrentUrl());
+		
+		
+//METHOD - 3
+//USING - javascriptExecutor 
+//		Thread.sleep(2000);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("location.reload()");
+		
+
+//METHOD - 4
+//USING - Robot class
+
+//		Thread.sleep(4000);
+//		Robot rb = new Robot();
+		
+//		rb.keyPress(KeyEvent.VK_CONTROL);
+//		rb.keyPress(KeyEvent.VK_F5);
+		
+//		Thread.sleep(1000);
+//		rb.keyRelease(KeyEvent.VK_F5);
+//		rb.keyRelease(KeyEvent.VK_CONTROL);
+		
+	}
+
+}
