@@ -1,0 +1,49 @@
+package roughWork;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.Color;
+
+public class ColourOfWebElement {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new EdgeDriver();
+//		driver.get(" https://www.google.com ");
+		driver.get(" https://www.facebook.com/ ");
+		Thread.sleep(1000);
+		
+		
+//		WebElement	 aboutLink   =		driver.findElement(By.xpath("//a[contains(text(),'About')]"));
+		WebElement forgetPassword = driver.findElement(By.xpath("//a[text() = 'Forgotten password?']"));
+		
+		//obtain color in rgba
+		String				rgba_Color					=		forgetPassword.getCssValue("color");
+		
+		//Convert from RGBA to HEX
+						
+		String  hex_Color	=		Color.fromString(rgba_Color).asHex();
+						
+		System.out.println("RGBA Color = ");
+		System.out.println(rgba_Color);
+		
+		System.out.println("HEX Color = ");
+		System.out.println(hex_Color);
+		
+		System.out.println("RGB Color = ");
+		System.out.println(Color.fromString(rgba_Color).asRgb());
+	}
+
+}
+
+/*
+// OUTPUT
+RGBA Color = 
+rgba(24, 119, 242, 1)
+HEX Color = 
+#1877f2
+RGB Color = 
+rgb(24, 119, 242)
+*/
