@@ -1,0 +1,63 @@
+public class RobotClass {
+
+@Test
+public void testRobotClass () throws AWTException, InterruptedException {
+		
+		// robot class is used to interact with the windows based pop up.
+		
+		WebDriver driver = new EdgeDriver();
+		
+		String URL  =  "https://www.foundit.in/";
+		
+		driver.get(URL);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement uploadButton =  driver.findElement(By.xpath("//div[contains(text() , 'Upload')]"));
+		
+		Thread.sleep(1000);
+		
+		uploadButton.click();
+	
+		Thread.sleep(1000);
+		WebElement selectButton = driver.findElement(By.xpath("//input[@type='file']"));
+		Thread.sleep(1000);
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", selectButton);
+		
+//		selectButton.click();
+		Thread.sleep(1000);
+		
+//		String filePath = "C:\\Users\\Akash\\Downloads";
+		String filePath = "C:\\Softies\\DemoText.txt";
+		
+		Robot robo = new Robot();
+		
+		Thread.sleep(1500);
+		
+		StringSelection ss = new  StringSelection(filePath); // file that needs to be uploaded, we copied it into the clipboard.
+		Toolkit.getDefaultToolkit().getSystemClipboard();
+		
+		Thread.sleep(1000);
+		
+		robo.keyPress(KeyEvent.VK_CONTROL);
+		robo.delay(1000);
+		
+		robo.keyPress(KeyEvent.VK_V);
+		robo.delay(1000);
+		
+		robo.keyRelease(KeyEvent.VK_V);
+		robo.delay(1000);
+		
+		robo.keyRelease(KeyEvent.VK_CONTROL);
+		
+		robo.delay(3000);
+		robo.keyPress(KeyEvent.VK_ENTER);
+		
+		robo.delay(1000);
+		robo.keyRelease(KeyEvent.VK_ENTER);
+	
+		Thread.sleep(5000);
+		driver. Close();
+	}
+}
